@@ -1,0 +1,25 @@
+{% extends "hotdogstore/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <section id="login-page-div">
+        <!--shows message if something went wrong with login-->
+        {% if message %}
+            <h2 id="alert-mesage-login">{{ message }}</h2>
+        {% endif %}
+        <form id="login-interface" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input id="usuername-login" name="username" placeholder="username"></input>
+            <input id="password-login" name="password" placeholder="password" type="password"></input>
+            <button id="login-button" type="submit">login</button>
+        </form>
+        <!--links to register page if user has no login-->
+        <div id="register">
+            <h3>Don't have an account yet?</h3>
+            <button id="new-account-button" action="{% url 'register' %}" onclick="document.location='register'">Create account</button>
+        </div>
+    </section>
+    <div id="background-container-div">
+        <img id="main-BG" src="{% static 'hotdogstore/images/background.jpg' %}" alt="HotDogzz BG">
+    </div>
+{% endblock %}
