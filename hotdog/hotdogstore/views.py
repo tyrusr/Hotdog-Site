@@ -112,7 +112,7 @@ def login_user(request):
         #logs user in if everything correct
         if user is not None:
             login(request, user)
-            return render(request, 'hotdogstore/index.html')
+            return redirect('index')
         #returns an error if anything was incorrect
         else:
             return render(request, 'hotdogstore/login.html', {
@@ -126,7 +126,7 @@ def logout_user(request):
     #logs out user if they are signed in and redirects them if they arent and somehow get to this url
     if request.user.is_authenticated:
         logout(request)
-        return render(request, 'hotdogstore/index.html')
+        return redirect('index')
     else:
         return render(request, 'hotdogstore/index.html')
     
