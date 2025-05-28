@@ -4,7 +4,7 @@ This site was more of a fast food clone that allowed users to brows a menu. And 
 
 ## Video Demo
 
-[Watch the Demo](https://youtu.be/5Ttau3pMNaI)
+[Watch the Demo](https://youtu.be/5NOn56OB5FQ)
 
 ## Features
 
