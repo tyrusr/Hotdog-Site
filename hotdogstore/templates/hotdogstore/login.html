@@ -9,8 +9,8 @@
         {% endif %}
         <form id="login-interface" action="{% url 'login' %}" method="post">
             {% csrf_token %}
-            <input id="usuername-login" name="username" placeholder="username"></input>
-            <input id="password-login" name="password" placeholder="password" type="password"></input>
+            <input id="usuername-login" name="username" placeholder="username" pattern="[A-Za-z]{3,}" required></input>
+            <input id="password-login" name="password" placeholder="password" type="password" minlength="8" required></input>
             <button id="login-button" type="submit">login</button>
         </form>
         <!--links to register page if user has no login-->

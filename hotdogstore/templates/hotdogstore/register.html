@@ -9,10 +9,10 @@
         {% endif %}
         <form id="login-interface" action="{% url 'register' %}" method="post">
             {% csrf_token %}
-            <input id="usuername-login" name="username" placeholder="username"></input>
-            <input id="email-login" name="email" placeholder="email"></input>
-            <input id="password-login" name="password1" placeholder="password" type="password"></input>
-            <input id="password-login2" name="password2" placeholder="confirm password" type="password"></input>
+            <input id="usuername-login" name="username" placeholder="username" pattern="[A-Za-z]{3,}" required></input>
+            <input id="email-login" name="email" placeholder="email" required></input>
+            <input id="password-login" name="password1" placeholder="password" type="password" required></input>
+            <input id="password-login2" name="password2" placeholder="confirm password" type="password" required></input>
             <button id="create-button" type="submit">Create</button>
         </form>
     </section>

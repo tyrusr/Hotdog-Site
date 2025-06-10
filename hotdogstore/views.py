@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 import json
 from django.http import JsonResponse
+import bleach
 
 # Create your views here.
 
@@ -103,7 +104,7 @@ def menu(request):
 def login_user(request):
     if request.method == "POST":
         #gets user credentials from login form
-        username = request.POST.get('username')
+        username = bleach.clean(request.POST.get('username'))
         password = request.POST.get('password')
 
         #authenticates user
@@ -134,8 +135,8 @@ def register(request):
     if request.method == "POST":
 
         #get everything from the form
-        username = request.POST.get('username')
-        email = request.POST.get('email')
+        username = bleach.clean(request.POST.get('username'))
+        email = bleach.clean(request.POST.get('email'), tags=[], strip=True)
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
